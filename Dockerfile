@@ -2,7 +2,7 @@
 # STEP 1 build executable binary
 ############################
 # FROM public.ecr.aws/vend/golang:1.8-alpine AS builder
-FROM 566178068807.dkr.ecr.us-west-2.amazonaws.com/golang:1.15.7-alpine3.13 AS builder
+FROM 880952631736.dkr.ecr.ap-south-1.amazonaws.com/springboot AS builder
 # FROM golang:alpine AS builder
 # Install git.
 # Git is required for fetching the dependencies.
@@ -19,7 +19,7 @@ RUN apk update && apk add --no-cache git
 #     -H \    
 #     -u "${UID}" \    
 #     "${USER}"
-WORKDIR $GOPATH/src/github.com/prabhatsharma/sample-microservice/
+WORKDIR $GOPATH/src/https://github.com/Harsha21397/sample-microservice/
 COPY . .
 # Fetch dependencies.
 # Using go get.
@@ -42,7 +42,7 @@ COPY --from=builder /etc/group /etc/group
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 
 # Copy our static executable.
-COPY --from=builder  /go/src/github.com/prabhatsharma/sample-microservice/main /go/bin/main
+COPY --from=builder  /go/src/github.com/Harsha21397/sample-microservice/main /go/bin/main
 
 # Use an unprivileged user.
 # USER appuser:appuser
