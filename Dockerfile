@@ -47,6 +47,6 @@ COPY --from=builder  /go/src/github.com/Harsha21397/sample-microservice/main /go
 # Use an unprivileged user.
 # USER appuser:appuser
 # Port on which the service will be exposed.
-EXPOSE 6080
+EXPOSE 8080
 # Run the binary.
 ENTRYPOINT ["/go/bin/main"]
